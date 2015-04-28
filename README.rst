@@ -11,13 +11,6 @@ Python 3 & Django 1.8 supported!
 
 **Note:** There are a couple of JSONField's for Django. This one is django-jsonfield here on GitHub but jsonfield on PyPi.
 
-Install
--------
-
-.. code-block:: python
-
-    pip install jsonfield
-
 
 Usage
 -----
@@ -68,12 +61,6 @@ There was a bug that could only be fixed by a feature in Django 1.4. `Read More`
 .. _Read More: https://github.com/bradjasper/django-jsonfield/issues/33
 
 
-Travis CI
----------
-
-.. image:: https://travis-ci.org/bradjasper/django-jsonfield.png?branch=master
-
-
 Contact
 -------
 Web: http://bradjasper.com
@@ -89,6 +76,8 @@ Email: `contact@bradjasper.com`_
 
 Changes
 -------
+
+v1.0.3_f_1, 4/28/2015 -- Added fix to avoid checking model's pk when initializing JSONField
 
 v1.0.3, 2/23/2015 -- Added fix to setup.py to allow PIP install
 
