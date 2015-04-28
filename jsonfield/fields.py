@@ -63,22 +63,17 @@ class JSONFieldBase(six.with_metaclass(SubfieldBase, models.Field)):
 
     def pre_init(self, value, obj):
         """Convert a string value to JSON only if it needs to be deserialized.
-
         SubfieldBase metaclass has been modified to call this method instead of
         to_python so that we can check the obj state and determine if it needs to be
         deserialized"""
 
         try:
             if obj._state.adding:
-                # Make sure the primary key actually exists on the object before
-                # checking if it's empty. This is a special case for South datamigrations
-                # see: https://github.com/bradjasper/django-jsonfield/issues/52
-                if getattr(obj, "pk", None) is not None:
-                    if isinstance(value, six.string_types):
-                        try:
-                            return json.loads(value, **self.load_kwargs)
-                        except ValueError:
-                            raise ValidationError(_("Enter valid JSON"))
+                if isinstance(value, six.string_types):
+                    try:
+                        return json.loads(value, **self.load_kwargs)
+                    except ValueError:
+                        raise ValidationError(_("Enter valid JSON"))
 
         except AttributeError:
             # south fake meta class doesn't create proper attributes
