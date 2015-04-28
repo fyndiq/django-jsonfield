@@ -23,13 +23,13 @@ class TestCommand(Command):
         call_command('test', 'jsonfield')
 
 setup(name='jsonfield',
-    version='1.0.3',
+    version='1.0.3_f_1',
     packages=['jsonfield'],
     license='MIT',
     include_package_data=True,
     author='Brad Jasper',
     author_email='bjasper@gmail.com',
-    url='https://github.com/bradjasper/django-jsonfield/',
+    url='https://github.com/fyndiq/django-jsonfield/',
     description='A reusable Django field that allows you to store validated JSON in your model.',
     long_description=open("README.rst").read(),
     install_requires=['Django >= 1.4.3'],
